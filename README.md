@@ -100,6 +100,7 @@ Sí se permite:
 Este software se proporciona "tal cual", sin garantías de ningún tipo. El autor no se 
 responsabiliza por daños derivados del uso de este proyecto.
 
+---
 
 ## Contacto / Contribuciones
 
