@@ -1,6 +1,6 @@
 # Visor-Markdowm-Pro
 
-**Repositorio:** [TK-FUISTELS154/Visor-Markdowm-Pro](https://github.com/TK-FUISTELS154/Visor-Markdowm-Pro) ([GitHub][1])
+**Repositorio:** [TK-FUISTELS154/Visor-Markdowm-Pro](https://github.com/TK-FUISTELS154/Visor-Markdowm-Pro)
 **Autor:** TK-FUISTELS154
 **Descripción breve:** Una pequeña aplicación web hecha en HTML/CSS/JavaScript para visualizar archivos Markdown localmente o en línea, con una interfaz sencilla.
 
@@ -15,13 +15,13 @@ Este proyecto “Visor-Markdowm-Pro” proporciona una interfaz ligera para carg
 * Un entorno simple que sirve como base para añadir funcionalidades (temas, vista previa, arrastrar y soltar, etc.).
 * Ideal para documentación, notas, demostraciones rápidas sin necesidad de instalar herramientas complejas.
 
-El lenguaje predominante: JavaScript (~47.9 %), CSS (~33.1 %) y HTML (~19.0 %) según el análisis del repositorio. ([GitHub][1])
+El lenguaje predominante: JavaScript (~47.9 %), CSS (~33.1 %) y HTML (~19.0 %) según el análisis del repositorio.
 
 ---
 
 ## Estructura del repositorio
 
-A continuación se presenta la organización de ficheros/directorios del proyecto en su forma actual: ([GitHub][1])
+A continuación se presenta la organización de ficheros/directorios del proyecto en su forma actual:
 
 ```
 /Visor-Markdowm-Pro
