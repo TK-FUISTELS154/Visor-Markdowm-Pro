@@ -1,7 +1,3 @@
-Aquí tienes un borrador de archivo **`Realme.md`** para el repositorio Visor‑Markdowm‑Pro (usuario TK‑FUISTELS154) en GitHub. Puedes adaptarlo al estilo que prefieras, agregar badges, imágenes, etc.
-
----
-
 # Visor-Markdowm-Pro
 
 **Repositorio:** [TK-FUISTELS154/Visor-Markdowm-Pro](https://github.com/TK-FUISTELS154/Visor-Markdowm-Pro) ([GitHub][1])
