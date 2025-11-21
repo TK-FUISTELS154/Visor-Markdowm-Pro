@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Visor Markdown Pro - Con Ecuaciones</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Dependencias: marked, KaTeX, Highlight.js, mermaid, Chart.js y html2pdf -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/lib/marked.umd.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <!-- Project styles and app logic -->
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/app.js" defer></script>
+
+</head>
+
+<body>
+    <div class="app-shell">
+        <div class="top-bar">
+            <div class="window-dots">
+                <div class="dot red"></div>
+                <div class="dot yellow"></div>
+                <div class="dot green"></div>
+            </div>
+            <div class="title">Markdown · Viewer Pro</div>
+            <div class="top-actions">
+                <div class="chip">.md viewer + PDF o HTML</div>
+                <button id="themeToggle" class="theme-toggle" type="button" title="Cambiar tema">
+                    <span class="icon" id="themeIcon">🌞</span>
+                    <span id="themeLabel">Claro</span>
+                </button>
+                <button id="exportBtn" class="export-btn" type="button" title="Exportar a PDF" style="display:none;">
+                    <span class="icon">📥</span>
+                    <span>PDF</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="left-controls">
+                <div class="brand">
+                    <div class="brand-logo">MD</div>
+                    <div>
+                        <div class="brand-text-main">Visor Markdown Pro</div>
+                        <!-- Subtitulo de la pagina -->
+                        <div class="brand-text-sub">TK-FUISTELS</div>
+                    </div>
+                </div>
+                <div class="file-info" id="fileInfo">
+                    Ningún archivo cargado
+                </div>
+            </div>
+
+            <label class="file-input-label">
+                <span class="icon">📄</span>
+                <span>Abrir archivo .md</span>
+                <input id="fileInput" class="file-input" type="file" accept=".md,.markdown,.txt" />
+            </label>
+        </div>
+
+        <div class="viewer-shell">
+            <div class="filename-bar">
+                <div class="filename" id="fileName">~/sin-archivo.md</div>
+                <div class="hint">Carga un archivo Markdown desde tu dispositivo</div>
+            </div>
+            <div id="viewer" class="viewer">
+                <div id="emptyState" class="empty-state">
+                    <div class="empty-icon">✦</div>
+                    <div class="empty-title">Arrastra o selecciona un archivo .md</div>
+                    <div class="empty-sub">
+                        Compatible con Windows, macOS, Linux, Android y iOS.
+                        Las ecuaciones LaTeX se mostrarán de forma hermosa y profesional.
+                    </div>
+                </div>
+                <article id="markdownBody" class="markdown-body" style="display:none;"></article>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de exportación -->
+    <div id="exportModal" class="export-modal">
+        <div class="export-modal-content">
+            <div class="export-modal-title">Exportar a PDF</div>
+            <div class="export-modal-desc">
+                Selecciona la opción de exportación que prefieras para tu documento.
+            </div>
+            <div class="export-options">
+                <label class="export-option">
+                    <input type="radio" name="exportFormat" value="pdf" checked />
+                    <div>
+                        <div class="export-option-label">PDF de Alta Calidad</div>
+                        <div class="export-option-desc">Excelente para compartir y imprimir. Las ecuaciones se verán
+                            perfectas.</div>
+                    </div>
+                </label>
+                <label class="export-option">
+                    <input type="radio" name="exportFormat" value="html" />
+                    <div>
+                        <div class="export-option-label">HTML Interactivo(BETA)</div>
+                        <div class="export-option-desc">Puedes abrir y editar en navegadores. Las ecuaciones son
+                            interactivas.</div>
+                    </div>
+                </label>
+            </div>
+            <div class="export-modal-buttons">
+                <button class="modal-btn cancel" onclick="closeExportModal()">
+                    Calcelar
+                </button>
+                <button class="modal-btn export" onclick="performExport()">
+                    <span class="export-spinner" id="exportSpinner"></span>
+                    <span id="exportBtnText">Exportar</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
